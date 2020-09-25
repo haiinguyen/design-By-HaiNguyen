@@ -23,5 +23,5 @@ function disable_scroll() {
     element.classList.toggle("noscroll");
     var hideSubMenu = document.getElementById("hideSubMenu");
     hideSubMenu.classList.toggle("hide-SubMenu");
-    document.getElementById('btnMenu').classList.toggle('open')
+    document.getElementById('btnMenu').classList.toggle('open');
 }
