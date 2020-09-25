@@ -19,8 +19,9 @@ function scrollFunction() {
 }
 // Hide Scrollbar
 function disable_scroll() {
-    var element = document.getElementById("myBody");
+    var element = document.querySelector(".myDocument");
     element.classList.toggle("noscroll");
     var hideSubMenu = document.getElementById("hideSubMenu");
     hideSubMenu.classList.toggle("hide-SubMenu");
+    document.getElementById('btnMenu').classList.toggle('open');
 }

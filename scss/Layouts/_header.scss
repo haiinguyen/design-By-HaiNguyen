@@ -25,10 +25,50 @@ header {
     }
     .navbar {
         .menu-search {
-            i {
-                &:hover {
-                    @include styleTextHover($color-blue-1);
-                    cursor: pointer;
+            // i {
+            //     &:hover {
+            //         @include styleTextHover($color-blue-1);
+            //         cursor: pointer;
+            //     }
+            // }
+            .navbar-toggler{
+                transition: all .5s;
+                &.open{
+                    .navbar-toggler-icon{
+                        transform: translateX(-10px);
+                        background-color: $color-trans;
+                    }
+                    .navbar-toggler-icon{
+                        &::before{
+                            transform: rotate(45deg) translate(0px,-1px);
+                        }
+                        &::after{
+                            transform: rotate(-45deg) translate(1px,0px);
+                        }
+                    }
+                }
+                .navbar-toggler-icon {
+                    width: 20px;
+                    height: 3px;
+                    background-color: $color-white-0;
+                    position: relative;
+                    border-radius: 3px;
+                    transition: all .5s;
+                    &::before,&::after {
+                        content: '';
+                        width: 20px;
+                        height: 3px;
+                        background-color: $color-white-0;
+                        position: absolute;
+                        border-radius: 3px;
+                        transition: all .5s;
+                    }
+                    &::before{
+                        transform: translate(-10px,6px);
+                    }
+                    &::after{
+                        transform: translate(-10px,-6px);
+                    }
                 }
             }
         }
@@ -96,7 +136,7 @@ header {
         .navbar-nav {
             .nav-item {
                 padding: 0 $pd-2;
-                line-height: 50px;
+                line-height: 46px;
                 .nav-link {
                     @include styleText($color-white-0, $fs-3 !important, $fw-bold);
                     display: inline-block;

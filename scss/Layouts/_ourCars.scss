@@ -241,13 +241,11 @@
         }
     }
 }
-@include responsiveMax("extra-large") {
+@include responsiveMax("extra-large-1200px") {
     .new-Cars,
     .popular-Cars,
     .video-cars {
-        display: grid;
         grid-template-columns: repeat(2, 1fr) !important;
-        gap: 2px;
         .cars__item{
             &.car1,&.car19,&.car28{
                 grid-column: unset !important;
@@ -257,9 +255,6 @@
     }
 }
 @include responsiveMax("small") {
-    .nav-tabs {
-        width: 70% !important;
-    }
     #myTabContent {
         .new-Cars,
         .popular-Cars,

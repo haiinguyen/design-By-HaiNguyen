@@ -12,15 +12,12 @@ body {
   font-size: 1rem;
   line-height: unset;
   font-weight: 400;
+  overflow-x: hidden !important;
 }
 
 html.noscroll,
 body.noscroll {
-  overflow-y: hidden;
-}
-
-#myBody {
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 a {
@@ -280,17 +277,6 @@ header {
   height: 108px;
   background-color: #000;
   transition: top 0.7s;
-  position: fixed;
-  position: sticky;
-  top: -100%;
-  left: 0;
-  right: 0;
-}
-
-header.show-nav {
-  top: 0;
-  transition: 0.5s ease-in-out 0.5s;
-  opacity: 1;
 }
 
 header .privacy ul {
@@ -318,9 +304,48 @@ header .privacy ul li a:hover {
   color: #0088c6;
 }
 
-header .navbar .menu-search i:hover {
-  color: #00adef;
-  cursor: pointer;
+header .navbar .menu-search .navbar-toggler {
+  transition: all .5s;
+}
+
+header .navbar .menu-search .navbar-toggler.open .navbar-toggler-icon {
+  transform: translateX(-10px);
+  background-color: transparent;
+}
+
+header .navbar .menu-search .navbar-toggler.open .navbar-toggler-icon::before {
+  transform: rotate(45deg) translate(0px, -1px);
+}
+
+header .navbar .menu-search .navbar-toggler.open .navbar-toggler-icon::after {
+  transform: rotate(-45deg) translate(1px, 0px);
+}
+
+header .navbar .menu-search .navbar-toggler .navbar-toggler-icon {
+  width: 20px;
+  height: 3px;
+  background-color: #fff;
+  position: relative;
+  border-radius: 3px;
+  transition: all .5s;
+}
+
+header .navbar .menu-search .navbar-toggler .navbar-toggler-icon::before, header .navbar .menu-search .navbar-toggler .navbar-toggler-icon::after {
+  content: '';
+  width: 20px;
+  height: 3px;
+  background-color: #fff;
+  position: absolute;
+  border-radius: 3px;
+  transition: all .5s;
+}
+
+header .navbar .menu-search .navbar-toggler .navbar-toggler-icon::before {
+  transform: translate(-10px, 6px);
+}
+
+header .navbar .menu-search .navbar-toggler .navbar-toggler-icon::after {
+  transform: translate(-10px, -6px);
 }
 
 header .navbar .navbar-logo {
@@ -390,7 +415,7 @@ header .navbar .navbar-nav .nav-item .nav-link:hover {
 @media screen and (max-width: 992px) {
   .navbar-collapse .navbar-nav .nav-item {
     padding: 0 20px;
-    line-height: 50px;
+    line-height: 46px;
   }
   .navbar-collapse .navbar-nav .nav-item .nav-link {
     color: #fff;
@@ -3200,15 +3225,13 @@ header .navbar .navbar-nav .nav-item .nav-link:hover {
   color: #fff;
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1200px) {
   .new-Cars, .ourCars #myTabContent #moreNewCars .showMoreCarsItem,
   .ourCars #myTabContent #morePopularCars .showMoreCarsItem,
   .ourCars #myTabContent #moreVideoCars .showMoreCarsItem,
   .popular-Cars,
   .video-cars {
-    display: grid;
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: 2px;
   }
   .new-Cars .cars__item.car1, .ourCars #myTabContent #moreNewCars .showMoreCarsItem .cars__item.car1, .ourCars #myTabContent #morePopularCars .showMoreCarsItem .cars__item.car1, .ourCars #myTabContent #moreVideoCars .showMoreCarsItem .cars__item.car1, .new-Cars .cars__item.car19, .ourCars #myTabContent #moreNewCars .showMoreCarsItem .cars__item.car19, .ourCars #myTabContent #morePopularCars .showMoreCarsItem .cars__item.car19, .ourCars #myTabContent #moreVideoCars .showMoreCarsItem .cars__item.car19, .new-Cars .cars__item.car28, .ourCars #myTabContent #moreNewCars .showMoreCarsItem .cars__item.car28, .ourCars #myTabContent #morePopularCars .showMoreCarsItem .cars__item.car28, .ourCars #myTabContent #moreVideoCars .showMoreCarsItem .cars__item.car28,
   .popular-Cars .cars__item.car1,
@@ -3223,9 +3246,6 @@ header .navbar .navbar-nav .nav-item .nav-link:hover {
 }
 
 @media screen and (max-width: 576px) {
-  .nav-tabs {
-    width: 70% !important;
-  }
   #myTabContent .new-Cars, .ourCars #myTabContent #moreNewCars .showMoreCarsItem,
   .ourCars #myTabContent #morePopularCars .showMoreCarsItem,
   .ourCars #myTabContent #moreVideoCars .showMoreCarsItem,
